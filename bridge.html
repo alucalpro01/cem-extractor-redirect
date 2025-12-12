@@ -3,11 +3,14 @@
 <head><meta charset="utf-8"></head>
 <body>
 <script>
+  // Bridge that forwards GitHub Pages -> chrome-extension success.html
+  // Replace YOUR_EXTENSION_ID with your real extension ID after loading the extension.
   const params = new URLSearchParams(window.location.search);
   const plan = params.get('plan') || 'starter';
-  const EXT = "dolnhgnehmcihjbckojmliokmmeohedo"; // replace with extension ID copied from chrome://extensions
-  // forward to extension success.html with same plan
+  const EXT = "dolnhgnehmcihjbckojmliokmmeohedo";
+  // redirect to extension (chrome will open it)
   window.location.href = `chrome-extension://${EXT}/success.html?plan=${encodeURIComponent(plan)}`;
 </script>
+<p>Yönlendiriliyorsunuz...</p>
 </body>
 </html>
