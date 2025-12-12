@@ -3,10 +3,11 @@
 <head><meta charset="utf-8"></head>
 <body>
 <script>
- const params = new URLSearchParams(window.location.search);
- const plan = params.get('plan') || 'starter';
- const EXT = "dolnhgnehmcihjbckojmliokmmeohedo"; // buraya extension ID koy
- window.location.href = `chrome-extension://${EXT}/success.html?plan=${plan}`;
+  const params = new URLSearchParams(window.location.search);
+  const plan = params.get('plan') || 'starter';
+  const EXT = "dolnhgnehmcihjbckojmliokmmeohedo"; // replace with extension ID copied from chrome://extensions
+  // forward to extension success.html with same plan
+  window.location.href = `chrome-extension://${EXT}/success.html?plan=${encodeURIComponent(plan)}`;
 </script>
 </body>
 </html>
