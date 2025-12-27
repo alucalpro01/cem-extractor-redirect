@@ -1,13 +1,23 @@
 <!doctype html>
 <html>
 <body>
-<script>
-const p = new URLSearchParams(location.search);
-const plan = p.get("plan");
-const EXT = "dolnhgnehmcihjbckojmliokmmeohedo";
-if(plan){
-  location.href = `chrome-extension://${EXT}/success.html?plan=${plan}`;
-}
-</script>
+  <h2>Yönlendiriliyorsunuz...</h2>
+  <script>
+    // 1. URL'deki tüm parametreleri al (plan, email vs.)
+    const params = new URLSearchParams(window.location.search);
+    const plan = params.get("plan");
+    
+    // 2. KENDİ Chrome Extension ID'nizi buraya yazın.
+    // Chrome -> Eklentiler (chrome://extensions) sayfasında eklentinizin ID'sini bulun.
+    // Örnek: "abcdefghijklmnop..."
+    const EXT_ID = "dolnhgnehmcihjbckojmliokmmeohedo"; 
+
+    if (plan && EXT_ID) {
+      // success.html sayfasına yönlendir
+      window.location.href = `chrome-extension://${EXT_ID}/success.html?plan=${plan}`;
+    } else {
+      document.body.innerHTML = "Hata: Plan veya Eklenti ID bulunamadı.";
+    }
+  </script>
 </body>
 </html>
